@@ -28,61 +28,98 @@ biDimensionalArray[3] = row3;
 
 let alive = '*';
 let died = ' ';
-function contatorNeibourgt() {
+function contatorNeibourgtDied() {
     for (let i = 0; i < biDimensionalArray.length; i++) {
-        console.log(biDimensionalArray[i]);
         for (let j = 0; j < biDimensionalArray[i][j]; j++) {
-            console.log(biDimensionalArray[i][j] + 1);
-
-            let alive = alive + biDimensionalArray[i][j];
-            let died = died + biDimensionalArray[i][j];
-
-            let counter = 0;
-            if (biDimensionalArray[i - 1][j - 1] === alive) {
-                return counter++;
+            let counterDied = 0;
+            if (biDimensionalArray[i - 1][j - 1] === ' ') {
+                return counterDied++;
             }
-            if (biDimensionalArray[i - 1][j] === alive) {
-                return counter++;
+            if (biDimensionalArray[i - 1][j] === ' ') {
+                return counterDied++;
             }
-            if (biDimensionalArray[i - 1][j + 1] === alive) {
-                return counter++;
+            if (biDimensionalArray[i - 1][j + 1] === ' ') {
+                return counterDied++;
             }
-            if (biDimensionalArray[i][j - 1] === alive) {
-                return counter++;
+            if (biDimensionalArray[i][j - 1] === ' ') {
+                return counterDied++;
             }
-            if (biDimensionalArray[i][j + 1] === alive) {
-                return counter++;
+            if (biDimensionalArray[i][j + 1] === ' ') {
+                return counterDied++;
             }
-            if (biDimensionalArray[i + 1][j - 1] === alive) {
-                return counter++;
+            if (biDimensionalArray[i + 1][j - 1] === ' ') {
+                return counterDied++;
             }
-            if (biDimensionalArray[i + 1][j] === alive) {
-                return counter++;
+            if (biDimensionalArray[i + 1][j] === ' ') {
+                return counterDied++;
             }
-            if (biDimensionalArray[i + 1][j + 1] === alive) {
-                return counter++;
+            if (biDimensionalArray[i + 1][j + 1] === ' ') {
+                return counterDied++;
             }
-            return counter;
+            return counterDied;
         }
     }
-    setTimeout(() => {
-        console.log('');
-    }, 1000);
 }
-let neightbord = contatorNeibourgt();
-
-function aliveDied() {
-    if (neightbord > 3) {
-        return died;
+function contatorNeibourgtAlive() {
+    for (let i = 0; i < biDimensionalArray.length; i++) {
+        for (let j = 0; j < biDimensionalArray[i][j]; j++) {
+            let counterAlive = 0;
+            if (biDimensionalArray[i - 1][j - 1] === '*') {
+                return counterAlive++;
+            }
+            if (biDimensionalArray[i - 1][j] === '*') {
+                return counterAlive++;
+            }
+            if (biDimensionalArray[i - 1][j + 1] === '*') {
+                return counterAlive++;
+            }
+            if (biDimensionalArray[i][j - 1] === '*') {
+                return counterAlive++;
+            }
+            if (biDimensionalArray[i][j + 1] === '*') {
+                return counterAlive++;
+            }
+            if (biDimensionalArray[i + 1][j - 1] === '*') {
+                return counterAlive++;
+            }
+            if (biDimensionalArray[i + 1][j] === '*') {
+                return counterAlive++;
+            }
+            if (biDimensionalArray[i + 1][j + 1] === '*') {
+                return counterAlive++;
+            }
+            return counterAlive;
+        }
     }
-    if (neightbord === 3 || neightbord === 2) {
+}
+let neightbordD = contatorNeibourgtDied();
+function diedCount() {
+    if (neightbordD === 3) {
         return alive;
     }
-    if (neightbord < 2) {
+}
+let neightbordA = contatorNeibourgtAlive();
+
+function aliveCount() {
+    if (neightbordA > 3) {
+        return died;
+    }
+    if (neightbordA === 3 || neightbordA === 2) {
+        return alive;
+    }
+    if (neightbordA < 2) {
         return died;
     }
 }
-const gameOfLife = setTimeout(() => {
-    console.log(neightbord, aliveDied());
-}, 1000);
+
+const gameOfLife = () => {
+    neightbordA;
+    neightbordD;
+    aliveCount();
+    diedCount();
+    contatorNeibourgtDied();
+    contatorNeibourgtAlive();
+    alive, died;
+};
+
 gameOfLife;
