@@ -2,7 +2,7 @@ import { myBigArray } from './bidimentionsarray.js';
 export function contatorNeibordDied() {
     let counterDied = 0;
     for (let i = 1; i < myBigArray().length - 1; i++) {
-        for (let j = 1; j < myBigArray().length - 1; j++) {
+        for (let j = 1; j < myBigArray()[i][j].length - 1; j++) {
             if (myBigArray()[i - 1][j - 1] === ' ') {
                 counterDied++;
             }
@@ -35,7 +35,7 @@ export function contatorNeibordDied() {
 export function contatorNeibordAlive() {
     let counterAlive = 0;
     for (let i = 1; i < myBigArray().length - 1; i++) {
-        for (let j = 1; j < myBigArray().length - 1; j++) {
+        for (let j = 1; j < myBigArray()[i][j].length - 1; j++) {
             if (myBigArray()[i - 1][j - 1] === '*') {
                 counterAlive++;
             }
