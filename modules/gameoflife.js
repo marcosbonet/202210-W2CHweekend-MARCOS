@@ -1,16 +1,77 @@
-import { myBigArray } from './bidimentionsarray.js';
 import { contatorNeibordAlive, contatorNeibordDied } from './functins.js';
+import { myBigArray } from './bidimentionsarray.js';
+
+function paintNewArray() {}
+
+for (let i = 1; i < myBigArray().length - 1; i++) {
+    for (let j = 1; j < myBigArray().length - 1; j++) {
+        if (myBigArray()[i][j] === '*') {
+            myBigArray()[i][j] = alive;
+        }
+        if (myBigArray()[i][j] === ' ') {
+            myBigArray()[i][j] = died;
+        }
+        if (myBigArray()[i - 1][j - 1] === ' ') {
+            myBigArray()[i - 1][j - 1] = died;
+        }
+        if (myBigArray()[i - 1][j] === ' ') {
+            myBigArray()[i - 1][j] = died;
+        }
+        if (myBigArray()[i - 1][j + 1] === ' ') {
+            myBigArray()[i - 1][j + 1] = died;
+        }
+        if (myBigArray()[i][j - 1] === ' ') {
+            myBigArray()[i][j - 1] = died;
+        }
+        if (myBigArray()[i][j + 1] === ' ') {
+            myBigArray()[i][j + 1] = died;
+        }
+        if (myBigArray()[i + 1][j - 1] === ' ') {
+            myBigArray()[i + 1][j - 1] = died;
+        }
+        if (myBigArray()[i + 1][j] === ' ') {
+            myBigArray()[i + 1][j - 1] = died;
+        }
+        if (myBigArray()[i + 1][j + 1] === ' ') {
+            myBigArray()[i + 1][j + 1] = died;
+        }
+        if (myBigArray()[i - 1][j - 1] === '*') {
+            myBigArray()[i - 1][j - 1] = alive;
+        }
+        if (myBigArray()[i - 1][j] === '*') {
+            myBigArray()[i - 1][j] = alive;
+        }
+        if (myBigArray()[i - 1][j + 1] === '*') {
+            myBigArray()[i - 1][j + 1] = alive;
+        }
+        if (myBigArray()[i][j - 1] === '*') {
+            myBigArray()[i][j - 1] = alive;
+        }
+        if (myBigArray()[i][j + 1] === '*') {
+            myBigArray()[i][j + 1] = alive;
+        }
+        if (myBigArray()[i + 1][j - 1] === '*') {
+            myBigArray()[i + 1][j - 1] = alive;
+        }
+        if (myBigArray()[i + 1][j] === '*') {
+            myBigArray()[i + 1][j - 1] = alive;
+        }
+        if (myBigArray()[i + 1][j + 1] === '*') {
+            myBigArray()[i + 1][j + 1] = alive;
+        }
+    }
+}
 
 let alive = '*';
 let died = ' ';
 
-let neightbordD = contatorNeibordDied(counterDied);
+let neightbordD = contatorNeibordDied();
 function diedCount() {
     if (neightbordD === 3) {
         return alive;
     }
 }
-let neightbordA = contatorNeibordAlive(counterAlive);
+let neightbordA = contatorNeibordAlive();
 
 function aliveCount() {
     if (neightbordA > 3) {
@@ -25,13 +86,10 @@ function aliveCount() {
 }
 
 const gameOfLife = () => {
-    neightbordA;
-    neightbordD;
+    console.log(myBigArray());
+    console.log(paintNewArray());
     aliveCount();
     diedCount();
-    contatorNeibordDied();
-    contatorNeibordAlive();
-    alive, died;
 };
 
 setInterval(() => {
